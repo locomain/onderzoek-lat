@@ -1,0 +1,36 @@
+{
+  "name": "neuro",
+  "version": "1.0.0",
+  "description": "Personal neural network playground",
+  "main": "index.js",
+  "watch": {
+    "compile": {
+      "patterns": [
+        "src",
+        "test"
+      ],
+      "extensions": "js,jsx,html,bosan",
+      "quiet": true,
+      "legacyWatch": true,
+      "delay": 2500
+    }
+  },
+  "scripts": {
+    "watch": "npm-watch",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "browserify src/neuro.js -s Neuro -o dist/neuro.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/locomain/Neuro.git"
+  },
+  "author": "Angelo Perrello <locomain12@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/locomain/Neuro/issues"
+  },
+  "homepage": "https://github.com/locomain/Neuro#readme",
+  "dependencies": {
+    "npm-watch": "^0.3.0"
+  }
+}

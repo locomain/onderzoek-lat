@@ -1,0 +1,48 @@
+<html>
+<head>
+    <script src="dist/neuro.js"></script>
+</head>
+<body>
+
+<script>
+
+    /**
+     * XOR TEST
+     */
+    let network = new Neuro.Network()
+        .addInputLayer(2)
+        .addHiddenLayer(4)
+        .addOutputLayer(1)
+        .setLearnRate(0.3)
+        .build();
+
+    let training = network.train([ //learn xor
+        { input : [0,0], output : [0]},
+        { input : [0,1], output : [1]},
+        { input : [1,0], output : [1]},
+        { input : [1,1], output : [0]}
+    ],Infinity,0.0002);
+
+    console.log(training);
+    console.log("1,0->1 =",network.run([1,0]));
+    console.log("1,1->0 =",network.run([1,1]));
+    console.log("0,1->1 =",network.run([0,1]));
+    console.log("0,0->0 =",network.run([0,0]));
+    console.dir(network);
+    console.log("");
+    console.log("");
+    console.log("exporting network");
+
+    const nexport = network.export();
+    console.log(nexport);
+    console.log(JSON.parse(nexport));
+
+    console.log("");
+    console.log("");
+    console.log("importing network");
+    let network2 = new Neuro.Network().import(nexport);
+    console.log(network2);
+
+</script>
+</body>
+</html>
