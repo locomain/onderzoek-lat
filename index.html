@@ -7,7 +7,7 @@
 <script>
 
     /**
-     * XOR TEST
+     * XOR BACKPROP TEST
      */
     let network = new Neuro.Network()
         .addInputLayer(2)
@@ -28,21 +28,6 @@
     console.log("1,1->0 =",network.run([1,1]));
     console.log("0,1->1 =",network.run([0,1]));
     console.log("0,0->0 =",network.run([0,0]));
-    console.dir(network);
-    console.log("");
-    console.log("");
-    console.log("exporting network");
-
-    const nexport = network.export();
-    console.log(nexport);
-    console.log(JSON.parse(nexport));
-
-    console.log("");
-    console.log("");
-    console.log("importing network");
-    let network2 = new Neuro.Network().import(nexport);
-    console.log(network2);
-
 </script>
 </body>
 </html>
